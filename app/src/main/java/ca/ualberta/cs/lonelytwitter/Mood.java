@@ -8,15 +8,12 @@ import java.util.Date;
 
 public abstract class Mood implements MessageMood {
     private Date date;
-    private String mood;
 
+    public Mood(){
+        this.date = new Date();
+    }
     public Mood(Date date){
         this.date = date;
-        this.mood = new String();
-    }
-    public Mood(Date date, String mood){
-        this.date = date;
-        this.mood = mood;
     }
 
     public void SetDate(Date date){

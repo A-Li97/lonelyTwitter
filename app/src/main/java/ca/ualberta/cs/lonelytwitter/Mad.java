@@ -8,6 +8,10 @@ import java.util.Date;
 
 public class Mad extends Mood {
 
+    public Mad() {
+        super();
+    }
+
     public Mad(Date date){
         super(date);
     }
