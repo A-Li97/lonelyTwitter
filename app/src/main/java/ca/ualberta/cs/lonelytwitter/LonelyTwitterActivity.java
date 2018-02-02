@@ -18,6 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+/**
+ * @author Joshua Charles Campbell
+ * @version 1
+ * @see Tweet
+ */
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -25,6 +31,13 @@ public class LonelyTwitterActivity extends Activity {
 	private ListView oldTweetsList;
 	
 	/** Called when the activity is first created. */
+
+	/**
+	 * Doesn't return anything.
+	 * This method is initialized when the app is created.
+	 *
+	 * @param savedInstanceState Previous instance when app was open
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +59,14 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * This method returns nothing.
+	 * This method is initialized every time the app is open,
+	 * this is different than onCreate method since the onCreate
+	 * method is initialized on creation, while this method is
+	 * initialized on open.
+	 */
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -55,6 +76,14 @@ public class LonelyTwitterActivity extends Activity {
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
 	}
+
+	/**
+	 * Returns a string array holding the previous tweets saved on file.
+	 *
+	 * @return 							A string array containing previous tweets
+	 * @throws FileNotFoundException 	If file doesn't exist throw an error
+	 * @throws IOException				If error occurs in Input/output of files
+	 */
 
 	private String[] loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
@@ -76,6 +105,16 @@ public class LonelyTwitterActivity extends Activity {
 		}
 		return tweets.toArray(new String[tweets.size()]);
 	}
+
+	/**
+	 * No return
+	 * This method saves a tweet (and optional date) to a file.
+	 *
+	 * @param  text						message user typed
+ 	* @param  date	 					date the user made the tweet
+	 * @throws FileNotFoundException 	If file doesn't exist throw an error
+	 * @throws IOException				If error occurs in Input/output of files
+	 */
 	
 	private void saveInFile(String text, Date date) {
 		try {
