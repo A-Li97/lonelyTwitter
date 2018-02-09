@@ -97,6 +97,7 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
+	//hi
 
 
 	private void saveInFile() {
