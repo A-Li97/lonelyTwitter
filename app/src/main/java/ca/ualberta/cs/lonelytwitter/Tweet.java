@@ -1,10 +1,14 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import android.support.annotation.NonNull;
+
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.Date;
 
 import io.searchbox.annotations.JestId;
 
-public abstract class Tweet implements Tweetable {
+public abstract class Tweet implements Tweetable, Comparable<Tweet> {
     private String message;
     private Date date;
 
@@ -57,5 +61,18 @@ public abstract class Tweet implements Tweetable {
 
     public Date getDate() {
         return date;
+    }
+
+    //Code taken from https://stackoverflow.com/questions/5927109/sort-objects-in-arraylist-by-date
+    //On Feb.15, 2018
+
+    @Override
+    public int compareTo(Tweet tweet) {
+
+        if(getDate() == null || tweet.getDate() == null) {
+            return 0;
+        }
+
+        return getDate().compareTo(tweet.getDate());
     }
 }
